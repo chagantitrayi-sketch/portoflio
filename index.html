@@ -27,13 +27,14 @@
     .hero-grad{background:linear-gradient(135deg,var(--g1),var(--g2))}
     .btn-grad{background:linear-gradient(135deg,var(--g1),var(--g2));color:#fff}
     .btn-grad:hover{filter:brightness(1.08);transform:translateY(-1px)}
+    .btn-ghost{border:1px solid var(--g1);color:var(--g1)}
     .chip{background:var(--chip);color:var(--chipText)}
     .card{background:var(--card)}
     .muted{color:var(--muted)}
+    .ring-neon{box-shadow:0 0 0 2px var(--g1),0 0 30px rgba(8,145,178,.25)}
     .neon-text{background:linear-gradient(135deg,var(--g1),var(--g2));-webkit-background-clip:text;background-clip:text;color:transparent}
     .section{padding-top:5rem;padding-bottom:5rem}
     .timeline-item:not(:last-child):after{content:'';position:absolute;left:24px;top:32px;height:calc(100% - 32px);width:2px;background:#26233f}
-    img{display:block}
   </style>
 </head>
 <body class="text-base">
@@ -61,7 +62,9 @@
     <div class="absolute inset-0 opacity-15" id="vanta"></div>
     <div class="relative z-10 max-w-6xl mx-auto px-6 py-28 text-center">
       <img src="pics.JPG" alt="Trayi Chaganti"
-           class="max-h-[150px] md:max-h-[200px] mx-auto rounded-xl border-4 border-[var(--accent)] shadow-[0_0_30px_rgba(236,72,153,.25)] object-cover">
+     class="max-h-[150px] md:max-h-[200px] mx-auto rounded-xl border-4 border-[var(--accent)] 
+            shadow-[0_0_30px_rgba(236,72,153,.25)] object-cover">
+
       <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-3">Full-Stack Developer</h1>
       <p class="neon-text text-lg md:text-xl font-semibold mb-6">Java • Spring Boot • Angular/Vue • AWS • REST/GraphQL • Jenkins CI/CD</p>
       <p class="max-w-3xl mx-auto text-[17px] muted mb-8">
@@ -88,11 +91,28 @@
   <!-- ABOUT -->
   <section id="about" class="section">
     <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl font-bold mb-4">About Me</h2>
-      <p class="muted leading-relaxed mb-4">
-        I specialize in secure, scalable microservices with Spring Boot and performant front-ends in Angular/Vue.
-        I love designing event-driven architectures, automating CI/CD, and shipping cloud-native apps on AWS.
-      </p>
+      <div class="grid md:grid-cols-3 gap-10 items-center">
+        <div data-aos="fade-right" class="md:col-span-1">
+          <img src="abtme.png"
+               alt="Working" class="rounded-xl card shadow-xl ring-1 ring-white/10">
+        </div>
+        <div data-aos="fade-left" class="md:col-span-2">
+          <h2 class="text-3xl font-bold mb-4">About Me</h2>
+          <p class="muted leading-relaxed mb-4">
+            I specialize in secure, scalable microservices with Spring Boot and performant front-ends in Angular/Vue.
+            I love designing event-driven architectures, automating CI/CD, and shipping cloud-native apps on AWS.
+          </p>
+          <p class="muted leading-relaxed">
+            Recent highlights: Kafka-backed workflows for high-volume claims, Terraform IaC for standardized
+            environments, and observability with CloudWatch/Prometheus. Clean code, great UX, and reliability are my priorities.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-3">
+            <span class="chip px-3 py-1 rounded-full text-xs">Security-first</span>
+            <span class="chip px-3 py-1 rounded-full text-xs">Scalable Systems</span>
+            <span class="chip px-3 py-1 rounded-full text-xs">Observability</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -101,17 +121,32 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-10">Skills</h2>
       <div class="grid md:grid-cols-2 gap-6">
-        <div class="card rounded-2xl p-6 ring-1 ring-white/10">
+        <div class="card rounded-2xl p-6 ring-1 ring-white/10" data-aos="fade-up">
           <h3 class="text-xl font-semibold mb-4">Technical</h3>
           <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 muted">
             <li>Java • Spring Boot • JPA</li>
             <li>Angular / Vue • TypeScript</li>
             <li>Microservices • REST/GraphQL</li>
-            <li>AWS (EC2, ECS, Lambda)</li>
-            <li>Docker • Kubernetes</li>
-            <li>SQL • PostgreSQL • MySQL</li>
             <li>Apache Kafka</li>
+            <li>AWS (EC2, ECS, S3, VPC, Lambda)</li>
+            <li>SQL • PostgreSQL • MySQL • DynamoDB</li>
+            <li>Docker • Kubernetes</li>
+            <li>JUnit • Swagger/OpenAPI</li>
           </ul>
+        </div>
+        <div class="card rounded-2xl p-6 ring-1 ring-white/10" data-aos="fade-up" data-aos-delay="100">
+          <h3 class="text-xl font-semibold mb-4">Tools & Strengths</h3>
+          <ul class="grid grid-cols-1 sm:grid-cols-2 gap-y-2 muted">
+            <li>Jenkins • GitHub Actions • Maven • Git</li>
+            <li>IntelliJ IDEA • VS Code • Android Studio</li>
+            <li>Terraform • CloudWatch • Prometheus</li>
+            <li>Clean Code • Testing • Mentoring</li>
+          </ul>
+          <div class="mt-5 flex flex-wrap gap-2">
+            <span class="px-2 py-1 text-xs rounded bg-[var(--g1)]/20 text-[var(--g1)]">CI/CD</span>
+            <span class="px-2 py-1 text-xs rounded bg-[var(--g2)]/20 text-[var(--g2)]">IaC</span>
+            <span class="px-2 py-1 text-xs rounded bg-[var(--accent)]/20 text-[var(--accent)]">Security</span>
+          </div>
         </div>
       </div>
     </div>
@@ -121,13 +156,95 @@
   <section id="experience" class="section">
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-10">Work Experience</h2>
-      <div class="card p-6 rounded-2xl ring-1 ring-white/10 mb-6">
-        <h3 class="text-xl font-semibold">Software Development Engineer</h3>
-        <p class="muted">CVS Health • Sep 2024 – May 2025</p>
+      <div class="space-y-8">
+        <!-- CVS Health -->
+        <div class="relative pl-16 timeline-item" data-aos="fade-up">
+          <div class="absolute left-0 top-0 w-10 h-10 rounded-full hero-grad flex items-center justify-center text-white ring-2 ring-white/10">
+            <i data-feather="briefcase" class="w-4 h-4"></i>
+          </div>
+          <div class="card rounded-2xl p-6 ring-1 ring-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-xl font-semibold">Software Development Engineer</h3>
+              <span class="text-sm muted">Sep 2024 – May 2025 • Texas, USA</span>
+            </div>
+            <p class="muted">CVS Health</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 muted">
+              <li>Built Java Spring Boot & Node.js microservices exposing versioned REST/GraphQL APIs.</li>
+              <li>Implemented Kafka workflows for async processing & real-time status propagation.</li>
+              <li>Secured services with OAuth2/JWT, enforced mTLS, and standardized CSRF/XSS protections.</li>
+              <li>Containerized with Docker & deployed to AWS ECS; instrumented via CloudWatch & Prometheus.</li>
+              <li>Terraform IaC (VPCs, subnets, security groups) to standardize environments.</li>
+              <li>Angular 16 UI with NgRx + D3.js; modernized legacy modules with Vue.js.</li>
+              <li>End-to-end CI/CD in Jenkins automating build, test, and deploy.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- CognitiveBotics -->
+        <div class="relative pl-16 timeline-item" data-aos="fade-up" data-aos-delay="100">
+          <div class="absolute left-0 top-0 w-10 h-10 rounded-full hero-grad flex items-center justify-center text-white ring-2 ring-white/10">
+            <i data-feather="briefcase" class="w-4 h-4"></i>
+          </div>
+          <div class="card rounded-2xl p-6 ring-1 ring-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-xl font-semibold">Associate Software Developer</h3>
+              <span class="text-sm muted">Jan 2023 – Jun 2023 • Hyderabad, India</span>
+            </div>
+            <p class="muted">CognitiveBotics Technologies</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 muted">
+              <li>Developed Spring Boot microservices with REST APIs & Swagger/OpenAPI.</li>
+              <li>Optimized persistence with Spring Data JPA.</li>
+              <li>Angular 12 components using RxJS for reactive interactions and state.</li>
+              <li>Improved CI/CD with Jenkins & GitHub Actions; added unit/integration & Cypress e2e tests.</li>
+            </ul>
+          </div>
+        </div>
+        <!-- Honeywell -->
+        <div class="relative pl-16 timeline-item" data-aos="fade-up" data-aos-delay="200">
+          <div class="absolute left-0 top-0 w-10 h-10 rounded-full hero-grad flex items-center justify-center text-white ring-2 ring-white/10">
+            <i data-feather="briefcase" class="w-4 h-4"></i>
+          </div>
+          <div class="card rounded-2xl p-6 ring-1 ring-white/10">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+              <h3 class="text-xl font-semibold">Java Developer</h3>
+              <span class="text-sm muted">Jun 2020 – Dec 2022 • Hyderabad, India</span>
+            </div>
+            <p class="muted">Honeywell</p>
+            <ul class="list-disc list-inside mt-3 space-y-2 muted">
+              <li>Built Core Java services consuming REST APIs on AWS EC2.</li>
+              <li>Modeled domain relationships with Hibernate for performance & maintainability.</li>
+              <li>Led AngularJS → Angular 8 migration with hybrid strategy & reusable directives.</li>
+              <li>Improved UI quality with Karma/Grunt tests; deployed via Elastic Beanstalk with least-privilege IAM.</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <div class="card p-6 rounded-2xl ring-1 ring-white/10">
-        <h3 class="text-xl font-semibold">Associate Software Developer</h3>
-        <p class="muted">CognitiveBotics Technologies • Jan 2023 – Jun 2023</p>
+
+      <!-- Education -->
+      <div class="mt-14">
+        <h3 class="text-2xl font-bold mb-6">Education</h3>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="card rounded-2xl p-5 ring-1 ring-white/10">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold">M.S. Computer Science</h4>
+              <span class="text-sm muted">2025</span>
+            </div>
+            <p class="muted">University of Central Missouri — GPA: 3.71</p>
+          </div>
+          <div class="card rounded-2xl p-5 ring-1 ring-white/10">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold">B.S. Computer Science Eng.</h4>
+              <span class="text-sm muted">2022</span>
+            </div>
+            <p class="muted">Blekinge Institute of Technology, Sweden — GPA: 3.4</p>
+          </div>
+          <div class="card rounded-2xl p-5 ring-1 ring-white/10 md:col-span-1">
+            <div class="flex items-center justify-between">
+              <h4 class="font-semibold">B.Tech Computer Science Eng.</h4>
+              <span class="text-sm muted">2021</span>
+            </div>
+            <p class="muted">JNTU Kakinada, India — GPA: 3.4</p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -137,9 +254,9 @@
     <div class="max-w-6xl mx-auto px-6">
       <h2 class="text-3xl font-bold mb-10">Featured Projects</h2>
       <div class="grid md:grid-cols-3 gap-6">
-        <!-- Coddle -->
+        <!-- Coddle (Pet Care App) -->
         <article class="card rounded-2xl overflow-hidden ring-1 ring-white/10" data-aos="fade-up">
-          <img src="coddle.png" alt="Coddle App" class="w-full h-auto">
+          <img src="coddle.png" alt="Coddle App" class="w-full h-auto block">
           <div class="p-6">
             <h3 class="text-xl font-semibold">Coddle (Pet Care App)</h3>
             <p class="muted mt-1">
@@ -154,9 +271,9 @@
           </div>
         </article>
 
-        <!-- CI Env -->
+        <!-- CI Environment with Jenkins & GitHub Actions -->
         <article class="card rounded-2xl overflow-hidden ring-1 ring-white/10" data-aos="fade-up" data-aos-delay="100">
-          <img src="jenkins.png" alt="CI/CD Jenkins Pipeline" class="w-full h-auto">
+          <img src="jenkins.png" alt="CI/CD Jenkins Pipeline" class="w-full h-auto block">
           <div class="p-6">
             <h3 class="text-xl font-semibold">CI Environment with Jenkins & GitHub Actions</h3>
             <p class="muted mt-1">
@@ -172,9 +289,9 @@
           </div>
         </article>
 
-        <!-- Wine ML -->
+        <!-- Wine Quality Prediction (ML) -->
         <article class="card rounded-2xl overflow-hidden ring-1 ring-white/10" data-aos="fade-up" data-aos-delay="200">
-          <img src="wine.png" alt="Wine Quality Prediction ML" class="w-full h-auto">
+          <img src="wine.png" alt="Wine Quality Prediction ML" class="w-full h-auto block">
           <div class="p-6">
             <h3 class="text-xl font-semibold">Wine Quality Prediction (ML)</h3>
             <p class="muted mt-1">
@@ -189,9 +306,9 @@
           </div>
         </article>
 
-        <!-- Thesis -->
+        <!-- Bachelor's Thesis -->
         <article class="card rounded-2xl overflow-hidden ring-1 ring-white/10" data-aos="fade-up" data-aos-delay="300">
-          <img src="thesis.png" alt="Bachelor’s Thesis on Train Ethernet Anomaly Detection" class="w-full h-auto">
+          <img src="thesis.png" alt="Bachelor’s Thesis on Train Ethernet Anomaly Detection" class="w-full h-auto block">
           <div class="p-6">
             <h3 class="text-xl font-semibold">Bachelor’s Thesis: Comparison of Machine Learning Algorithms for Anomaly Detection in Train’s Real-Time Ethernet</h3>
             <p class="muted mt-1">
@@ -205,77 +322,92 @@
             </div>
             <div class="mt-4">
               <a href="https://www.diva-portal.org/smash/record.jsf?pid=diva2:1707593" target="_blank" rel="noopener"
-                 class="inline-flex items-center text-[var(--g1)] hover:underline">
+                 class="inline-flex items-center text-[var(--primary)] hover:underline">
                 <i data-feather="external-link" class="w-4 h-4 mr-1"></i>
                 View Thesis
               </a>
             </div>
           </div>
         </article>
+
       </div>
     </div>
   </section>
-
   <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div data-aos="fade-right">
-          <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-          <p class="muted mb-6">Open to new opportunities, freelance projects, or a quick chat about building resilient cloud systems.</p>
-          <div class="space-y-3">
-            <div class="flex items-center gap-3"><i data-feather="mail" class="w-5 h-5 text-[var(--g1)]"></i><a href="mailto:chagantitrayi@gmail.com" class="hover:underline">chagantitrayi@gmail.com</a></div>
-            <div class="flex items-center gap-3"><i data-feather="phone" class="w-5 h-5 text-[var(--g1)]"></i><span>+1 (224) 566-4687</span></div>
-            <div class="flex items-center gap-3"><i data-feather="map-pin" class="w-5 h-5 text-[var(--g1)]"></i><span>Texas, USA</span></div>
+<section id="contact" class="section">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div data-aos="fade-right">
+        <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+        <p class="muted mb-6">Open to new opportunities, freelance projects, or a quick chat about building resilient cloud systems.</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <i data-feather="mail" class="w-5 h-5 text-[var(--g1)]"></i>
+            <a href="mailto:chagantitrayi@gmail.com" class="hover:underline">chagantitrayi@gmail.com</a>
           </div>
-          <div class="mt-6 flex gap-3">
-            <a href="https://www.linkedin.com/in/trayi-chaganti-3b2a88209" target="_blank" rel="noopener"
-               class="px-4 py-2 rounded-lg btn-grad shadow-lg text-sm">LinkedIn</a>
-            <a href="https://drive.google.com/uc?export=download&id=1Z5zog0nic6h9zXmjnB_Erqk8Nt5M7mTn"
-               target="_blank" rel="noopener"
-               class="px-4 py-2 rounded-lg border border-[var(--g1)] text-[var(--g1)] text-sm hover:bg-[var(--g1)] hover:text-black transition">Download CV</a>
+          <div class="flex items-center gap-3">
+            <i data-feather="phone" class="w-5 h-5 text-[var(--g1)]"></i>
+            <span>+1 (224) 566-4687</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i data-feather="map-pin" class="w-5 h-5 text-[var(--g1)]"></i>
+            <span>Texas, USA</span>
           </div>
         </div>
-        <div data-aos="fade-left">
-          <!-- Web3Forms form WITHOUT redirect -->
-          <form action="https://api.web3forms.com/submit" method="POST"
-                class="card p-6 rounded-2xl ring-1 ring-white/10">
-            <!-- Access key -->
-            <input type="hidden" name="access_key" value="3478ecf1-061b-4089-9d33-205e9c35e3cb">
-
-            <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm mb-1 muted">Name</label>
-                <input type="text" name="name" required
-                       class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
-                       placeholder="Your name">
-              </div>
-              <div>
-                <label class="block text-sm mb-1 muted">Email</label>
-                <input type="email" name="email" required
-                       class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
-                       placeholder="you@example.com">
-              </div>
-            </div>
-
-            <div class="mt-4">
-              <label class="block text-sm mb-1 muted">Message</label>
-              <textarea rows="5" name="message" required
-                        class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
-                        placeholder="Say hello…"></textarea>
-            </div>
-
-            <!-- Optional subject + honeypot -->
-            <input type="hidden" name="subject" value="New message from Portfolio">
-            <input type="checkbox" name="botcheck" class="hidden" style="display:none">
-
-            <button type="submit" class="mt-5 px-5 py-3 rounded-lg btn-grad shadow-xl">Send Message</button>
-          </form>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.linkedin.com/in/trayi-chaganti-3b2a88209" target="_blank" rel="noopener"
+             class="px-4 py-2 rounded-lg btn-grad shadow-lg text-sm">LinkedIn</a>
+          <a href="https://drive.google.com/uc?export=download&id=1Z5zog0nic6h9zXmjnB_Erqk8Nt5M7mTn"
+             target="_blank" rel="noopener"
+             class="px-4 py-2 rounded-lg border border-[var(--g1)] text-[var(--g1)] text-sm hover:bg-[var(--g1)] hover:text-black transition">Download CV</a>
         </div>
       </div>
-    </div>
-  </section>
 
+      <div data-aos="fade-left">
+        <!-- Web3Forms Contact Form -->
+        <form action="https://api.web3forms.com/submit" method="POST"
+              class="card p-6 rounded-2xl ring-1 ring-white/10">
+
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="3478ecf1-061b-4089-9d33-205e9c35e3cb">
+
+          <!-- Redirect to thankyou.html -->
+          <input type="hidden" name="redirect" value="thankyou.html">
+
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm mb-1 muted">Name</label>
+              <input type="text" name="name" required
+                     class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 
+                            focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
+                     placeholder="Your name">
+            </div>
+            <div>
+              <label class="block text-sm mb-1 muted">Email</label>
+              <input type="email" name="email" required
+                     class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 
+                            focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
+                     placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-sm mb-1 muted">Message</label>
+            <textarea rows="5" name="message" required
+                      class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 
+                             focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
+                      placeholder="Say hello…"></textarea>
+          </div>
+
+          <button type="submit" class="mt-5 px-5 py-3 rounded-lg btn-grad shadow-xl">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
   <!-- FOOTER -->
   <footer class="border-t border-white/10">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between">
@@ -291,6 +423,7 @@
   </footer>
 
   <script>
+    // Vanta NET animated background (subtle, neon)
     VANTA.NET({
       el: "#vanta",
       mouseControls: true,
@@ -300,12 +433,13 @@
       minWidth: 200.00,
       scale: 1.00,
       scaleMobile: 1.00,
-      color: 0x06b6d4,
-      backgroundColor: 0x0f0a1f,
+      color: 0x06b6d4,           // cyan
+      backgroundColor: 0x0f0a1f, // deep black-violet
       points: 12.00,
       maxDistance: 20.00,
       spacing: 15.00
     });
+
     AOS.init({ duration: 800, easing: 'ease-in-out', once: true });
     feather.replace();
   </script>
