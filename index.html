@@ -333,63 +333,80 @@
       </div>
     </div>
   </section>
-
   <!-- CONTACT -->
-  <section id="contact" class="section">
-    <div class="max-w-6xl mx_auto px-6">
-      <div class="grid lg:grid-cols-2 gap-10">
-        <div data-aos="fade-right">
-          <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-          <p class="muted mb-6">Open to new opportunities, freelance projects, or a quick chat about building resilient cloud systems.</p>
-          <div class="space-y-3">
-            <div class="flex items-center gap-3"><i data-feather="mail" class="w-5 h-5 text-[var(--g1)]"></i><a href="mailto:chagantitrayi@gmail.com" class="hover:underline">chagantitrayi@gmail.com</a></div>
-            <div class="flex items-center gap-3"><i data-feather="phone" class="w-5 h-5 text-[var(--g1)]"></i><span>+1 (224) 566-4687</span></div>
-            <div class="flex items-center gap-3"><i data-feather="map-pin" class="w-5 h-5 text-[var(--g1)]"></i><span>Texas, USA</span></div>
+<section id="contact" class="section">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid lg:grid-cols-2 gap-10">
+      <div data-aos="fade-right">
+        <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
+        <p class="muted mb-6">Open to new opportunities, freelance projects, or a quick chat about building resilient cloud systems.</p>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <i data-feather="mail" class="w-5 h-5 text-[var(--g1)]"></i>
+            <a href="mailto:chagantitrayi@gmail.com" class="hover:underline">chagantitrayi@gmail.com</a>
           </div>
-          <div class="mt-6 flex gap-3">
-            <a href="https://www.linkedin.com/in/trayi-chaganti-3b2a88209" target="_blank" rel="noopener"
-               class="px-4 py-2 rounded-lg btn-grad shadow-lg text-sm">LinkedIn</a>
-            <a href="https://drive.google.com/uc?export=download&id=1Z5zog0nic6h9zXmjnB_Erqk8Nt5M7mTn"
-               target="_blank" rel="noopener"
-               class="px-4 py-2 rounded-lg border border-[var(--g1)] text-[var(--g1)] text-sm hover:bg-[var(--g1)] hover:text-black transition">Download CV</a>
+          <div class="flex items-center gap-3">
+            <i data-feather="phone" class="w-5 h-5 text-[var(--g1)]"></i>
+            <span>+1 (224) 566-4687</span>
+          </div>
+          <div class="flex items-center gap-3">
+            <i data-feather="map-pin" class="w-5 h-5 text-[var(--g1)]"></i>
+            <span>Texas, USA</span>
           </div>
         </div>
-        <div data-aos="fade-left">
-          <!-- Formspree-integrated form -->
-          <form action="https://formspree.io/f/xnnblqaz" method="POST"
-                class="card p-6 rounded-2xl ring-1 ring-white/10">
-            <div class="grid md:grid-cols-2 gap-4">
-              <div>
-                <label class="block text-sm mb-1 muted">Name</label>
-                <input type="text" name="name" required
-                       class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
-                       placeholder="Your name">
-              </div>
-              <div>
-                <label class="block text-sm mb-1 muted">Email</label>
-                <input type="email" name="email" required
-                       class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
-                       placeholder="you@example.com">
-              </div>
-            </div>
-            <div class="mt-4">
-              <label class="block text-sm mb-1 muted">Message</label>
-              <textarea rows="5" name="message" required
-                        class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
-                        placeholder="Say hello…"></textarea>
-            </div>
-
-            <!-- Optional extras -->
-            <input type="hidden" name="_subject" value="New message from Portfolio">
-            <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-
-            <button type="submit" class="mt-5 px-5 py-3 rounded-lg btn-grad shadow-xl">Send Message</button>
-          </form>
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.linkedin.com/in/trayi-chaganti-3b2a88209" target="_blank" rel="noopener"
+             class="px-4 py-2 rounded-lg btn-grad shadow-lg text-sm">LinkedIn</a>
+          <a href="https://drive.google.com/uc?export=download&id=1Z5zog0nic6h9zXmjnB_Erqk8Nt5M7mTn"
+             target="_blank" rel="noopener"
+             class="px-4 py-2 rounded-lg border border-[var(--g1)] text-[var(--g1)] text-sm hover:bg-[var(--g1)] hover:text-black transition">Download CV</a>
         </div>
       </div>
-    </div>
-  </section>
 
+      <div data-aos="fade-left">
+        <!-- Web3Forms Contact Form -->
+        <form action="https://api.web3forms.com/submit" method="POST"
+              class="card p-6 rounded-2xl ring-1 ring-white/10">
+
+          <!-- Web3Forms Access Key -->
+          <input type="hidden" name="access_key" value="3478ecf1-061b-4089-9d33-205e9c35e3cb">
+
+          <!-- Redirect to thankyou.html -->
+          <input type="hidden" name="redirect" value="thankyou.html">
+
+          <div class="grid md:grid-cols-2 gap-4">
+            <div>
+              <label class="block text-sm mb-1 muted">Name</label>
+              <input type="text" name="name" required
+                     class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 
+                            focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
+                     placeholder="Your name">
+            </div>
+            <div>
+              <label class="block text-sm mb-1 muted">Email</label>
+              <input type="email" name="email" required
+                     class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 
+                            focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
+                     placeholder="you@example.com">
+            </div>
+          </div>
+
+          <div class="mt-4">
+            <label class="block text-sm mb-1 muted">Message</label>
+            <textarea rows="5" name="message" required
+                      class="w-full px-3 py-2 rounded-lg bg-white/5 border border-white/10 
+                             focus:outline-none focus:ring-2 focus:ring-[var(--g2)]"
+                      placeholder="Say hello…"></textarea>
+          </div>
+
+          <button type="submit" class="mt-5 px-5 py-3 rounded-lg btn-grad shadow-xl">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+  
   <!-- FOOTER -->
   <footer class="border-t border-white/10">
     <div class="max-w-6xl mx-auto px-6 py-8 flex flex-col md:flex-row items-center justify-between">
