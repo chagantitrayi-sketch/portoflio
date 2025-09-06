@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thank You — Trayi Chaganti</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --bg:#0f0a1f;
+      --text:#e5e7eb;
+      --g1:#06b6d4;
+      --g2:#a855f7;
+      --accent:#ec4899;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+    .btn-grad {
+      background: linear-gradient(135deg,var(--g1),var(--g2));
+      color: #fff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      font-weight: 600;
+      transition: transform 0.2s ease, filter 0.2s ease;
+      display: inline-block;
+    }
+    .btn-grad:hover {
+      filter: brightness(1.1);
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h1 class="text-4xl font-extrabold mb-4">🎉 Thank You!</h1>
+    <p class="text-lg text-gray-300 mb-6">
+      Thanks for showing interest in my profile.   
+        I’ll get back to you very soon! 
+    </p>
+    <a href="index.html" class="btn-grad">⬅ Back to Home</a>
+  </div>
+</body>
+</html>

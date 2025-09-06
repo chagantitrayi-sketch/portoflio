@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="p9">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Palette Chooser — Trayi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root{
+      --bg:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --card:#111827; --cardText:#e5e7eb;
+      --primary:#7c3aed; --primaryTo:#4338ca; --accent:#22d3ee; --accent2:#ec4899;
+      --chipBg:#1f2937; --chipText:#cbd5e1;
+    }
+    /* Existing palettes (P1–P8) — optional keep */
+    [data-theme="p1"]{ --bg:#0f172a; --text:#e5e7eb; --muted:#94a3b8; --card:#111827; --cardText:#e5e7eb; --primary:#7c3aed; --primaryTo:#4338ca; --accent:#22d3ee; --accent2:#ec4899; --chipBg:#1f2937; --chipText:#cbd5e1;}
+    [data-theme="p2"]{ --bg:#f3f4f6; --text:#0f172a; --muted:#475569; --card:#ffffff; --cardText:#111827; --primary:#3b82f6; --primaryTo:#2dd4bf; --accent:#a855f7; --accent2:#f43f5e; --chipBg:#eef2ff; --chipText:#3730a3;}
+    [data-theme="p3"]{ --bg:#0b1220; --text:#e2e8f0; --muted:#94a3b8; --card:#101826; --cardText:#e2e8f0; --primary:#0ea5e9; --primaryTo:#10b981; --accent:#67e8f9; --accent2:#34d399; --chipBg:#111827; --chipText:#a7f3d0;}
+    [data-theme="p4"]{ --bg:#fff7ed; --text:#111827; --muted:#6b7280; --card:#ffffff; --cardText:#111827; --primary:#f97316; --primaryTo:#db2777; --accent:#facc15; --accent2:#ef4444; --chipBg:#fff1f2; --chipText:#9f1239;}
+    [data-theme="p5"]{ --bg:#ecfeff; --text:#0b1324; --muted:#334155; --card:#ffffff; --cardText:#0b1324; --primary:#0ea5e9; --primaryTo:#2563eb; --accent:#22d3ee; --accent2:#06b6d4; --chipBg:#e0f2fe; --chipText:#1e3a8a;}
+    [data-theme="p6"]{ --bg:#f0fdf4; --text:#0f172a; --muted:#475569; --card:#ffffff; --cardText:#0f172a; --primary:#10b981; --primaryTo:#4338ca; --accent:#14b8a6; --accent2:#6366f1; --chipBg:#ecfeff; --chipText:#047857;}
+    [data-theme="p7"]{ --bg:#0f0a1f; --text:#efeef8; --muted:#b4b0cc; --card:#17122c; --cardText:#efeef8; --primary:#6d28d9; --primaryTo:#a855f7; --accent:#f59e0b; --accent2:#eab308; --chipBg:#1f1840; --chipText:#fde68a;}
+    [data-theme="p8"]{ --bg:#111827; --text:#e5e7eb; --muted:#9ca3af; --card:#1f2937; --cardText:#e5e7eb; --primary:#94a3b8; --primaryTo:#0ea5e9; --accent:#e5e7eb; --accent2:#38bdf8; --chipBg:#374151; --chipText:#e5e7eb;}
+
+    /* NEW — Black combos */
+    /* P9 – Black + Neon Cyan/Purple (Cyberpunk) */
+    [data-theme="p9"]{
+      --bg:#0f0a1f; --text:#e5e7eb; --muted:#a3a3b5; --card:#14122a; --cardText:#e5e7eb;
+      --primary:#06b6d4; --primaryTo:#a855f7; --accent:#22d3ee; --accent2:#ec4899;
+      --chipBg:#1f1b3a; --chipText:#cbd5e1;
+    }
+    /* P10 – Black + Gold (Premium) */
+    [data-theme="p10"]{
+      --bg:#111827; --text:#f3f4f6; --muted:#cbd5e1; --card:#0b1020; --cardText:#f3f4f6;
+      --primary:#f59e0b; --primaryTo:#eab308; --accent:#fde68a; --accent2:#6d28d9;
+      --chipBg:#1f2937; --chipText:#fde68a;
+    }
+    /* P11 – Black + Emerald/Aqua (Fresh Dark) */
+    [data-theme="p11"]{
+      --bg:#0b1220; --text:#e2e8f0; --muted:#94a3b8; --card:#0f172a; --cardText:#e2e8f0;
+      --primary:#10b981; --primaryTo:#22d3ee; --accent:#34d399; --accent2:#06b6d4;
+      --chipBg:#102238; --chipText:#a7f3d0;
+    }
+    /* P12 – Black + Red (Bold) */
+    [data-theme="p12"]{
+      --bg:#000000; --text:#e5e7eb; --muted:#9ca3af; --card:#0b0b0b; --cardText:#e5e7eb;
+      --primary:#ef4444; --primaryTo:#eab308; --accent:#f87171; --accent2:#f59e0b;
+      --chipBg:#111111; --chipText:#fca5a5;
+    }
+
+    /* Theming helpers */
+    body{ background:var(--bg); color:var(--text); }
+    .hero{ background: linear-gradient(135deg, var(--primary), var(--primaryTo)); }
+    .btn-primary{ background: linear-gradient(135deg, var(--primary), var(--primaryTo)); color:white; box-shadow: 0 8px 24px rgba(0,0,0,.35); }
+    .btn-primary:hover{ filter: brightness(1.08); transform: translateY(-1px); }
+    .btn-ghost{ border:1px solid var(--primary); color:var(--primary); }
+    .badge{ background:var(--chipBg); color:var(--chipText); }
+    .card{ background:var(--card); color:var(--cardText); }
+    .muted{ color:var(--muted); }
+    .accent{ color:var(--accent); }
+    .accent-bg{ background:var(--accent2); color:white; }
+    .link{ color:var(--accent); }
+    .ring-theme{ box-shadow: 0 0 0 2px var(--accent); }
+  </style>
+</head>
+<body class="min-h-screen">
+  <!-- Palette Switcher -->
+  <div class="max-w-5xl mx-auto px-6 pt-6">
+    <h1 class="text-2xl font-semibold mb-3">Choose your color palette</h1>
+    <p class="muted mb-4">Click to preview the palette on hero, buttons, cards, and badges.</p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+      <!-- Original set -->
+      <button data-set="p1" class="px-4 py-2 rounded-lg btn-ghost">P1 — Electric Purple & Cyan</button>
+      <button data-set="p2" class="px-4 py-2 rounded-lg btn-ghost">P2 — Modern Gradient</button>
+      <button data-set="p3" class="px-4 py-2 rounded-lg btn-ghost">P3 — Minimal Dark</button>
+      <button data-set="p4" class="px-4 py-2 rounded-lg btn-ghost">P4 — Sunset Glow</button>
+      <button data-set="p5" class="px-4 py-2 rounded-lg btn-ghost">P5 — Oceanic Blue</button>
+      <button data-set="p6" class="px-4 py-2 rounded-lg btn-ghost">P6 — Emerald & Indigo</button>
+      <button data-set="p7" class="px-4 py-2 rounded-lg btn-ghost">P7 — Royal Violet & Gold</button>
+      <button data-set="p8" class="px-4 py-2 rounded-lg btn-ghost">P8 — Mono Slate</button>
+      <!-- New black combos -->
+      <button data-set="p9" class="px-4 py-2 rounded-lg btn-ghost ring-theme">P9 — Black + Neon (Cyberpunk)</button>
+      <button data-set="p10" class="px-4 py-2 rounded-lg btn-ghost">P10 — Black + Gold</button>
+      <button data-set="p11" class="px-4 py-2 rounded-lg btn-ghost">P11 — Black + Emerald/Aqua</button>
+      <button data-set="p12" class="px-4 py-2 rounded-lg btn-ghost">P12 — Black + Red</button>
+    </div>
+  </div>
+
+  <!-- Hero Preview -->
+  <section class="hero mt-8">
+    <div class="max-w-5xl mx-auto px-6 py-14 text-white">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Trayi Chaganti</h2>
+      <p class="mt-2 text-lg md:text-xl opacity-90">Full-Stack Developer — Java • Spring Boot • Angular • AWS</p>
+      <div class="mt-6 flex flex-wrap gap-3">
+        <a href="#!" class="btn-primary px-5 py-3 rounded-lg">Primary CTA</a>
+        <a href="https://drive.google.com/uc?export=download&id=1Z5zog0nic6h9zXmjnB_Erqk8Nt5M7mTn"
+           target="_blank" rel="noopener"
+           class="px-5 py-3 rounded-lg accent-bg">Download CV</a>
+      </div>
+      <div class="mt-5 flex flex-wrap gap-2">
+        <span class="badge px-3 py-1 rounded-full text-sm">Microservices</span>
+        <span class="badge px-3 py-1 rounded-full text-sm">Kafka</span>
+        <span class="badge px-3 py-1 rounded-full text-sm">AWS ECS</span>
+        <span class="badge px-3 py-1 rounded-full text-sm">Angular</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Components Preview -->
+  <div class="max-w-5xl mx-auto px-6 py-10 grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- Card 1 -->
+    <div class="card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold">Project Card</h3>
+      <p class="muted mt-1">Card & body text preview.</p>
+      <div class="mt-4 h-28 rounded-xl" style="background: linear-gradient(135deg, var(--accent), var(--accent2));"></div>
+      <div class="mt-5 flex gap-2">
+        <span class="badge px-3 py-1 rounded-full text-sm">Angular</span>
+        <span class="badge px-3 py-1 rounded-full text-sm">NgRx</span>
+        <span class="badge px-3 py-1 rounded-full text-sm">D3.js</span>
+      </div>
+      <div class="mt-5 flex gap-3">
+        <a class="btn-primary px-4 py-2 rounded-lg text-sm" href="#!">Live Demo</a>
+        <a class="px-4 py-2 rounded-lg btn-ghost text-sm" href="#!">Source</a>
+      </div>
+    </div>
+
+    <!-- Card 2 -->
+    <div class="card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold">Experience Card</h3>
+      <p class="muted mt-1">Company / Role / Dates</p>
+      <ul class="mt-4 space-y-2 list-disc list-inside muted">
+        <li>Spring Boot & GraphQL APIs</li>
+        <li>Kafka event workflows</li>
+        <li>Terraform on AWS</li>
+      </ul>
+      <div class="mt-5">
+        <span class="px-2 py-1 rounded text-xs" style="background:var(--accent); color:#0b1220;">Security</span>
+        <span class="px-2 py-1 rounded text-xs ml-2" style="background:var(--accent2); color:#fff;">CI/CD</span>
+      </div>
+    </div>
+
+    <!-- Card 3 -->
+    <div class="card rounded-2xl p-6">
+      <h3 class="text-xl font-semibold">Contact Card</h3>
+      <p class="muted mt-1">Links & micro UI.</p>
+      <div class="mt-4 space-y-2">
+        <div><span class="muted">Email:</span> <a class="link" href="mailto:chagantitrayi@gmail.com">chagantitrayi@gmail.com</a></div>
+        <div><span class="muted">Phone:</span> <span>+1 (224) 566-4687</span></div>
+        <div><span class="muted">LinkedIn:</span> <a class="link" href="https://www.linkedin.com/in/trayi-chaganti-3b2a88209" target="_blank">Profile</a></div>
+      </div>
+      <div class="mt-5">
+        <button class="btn-primary px-4 py-2 rounded-lg text-sm">Say Hello</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="max-w-5xl mx-auto px-6 pb-10">
+    <p class="muted text-sm">Pick a palette (P1–P12). I’ll theme your full portfolio with the one you choose.</p>
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const buttons = document.querySelectorAll('button[data-set]');
+    function updateActive(active){
+      buttons.forEach(b=>b.classList.toggle('ring-theme', b.dataset.set===active));
+    }
+    buttons.forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        const v = btn.dataset.set;
+        root.setAttribute('data-theme', v);
+        updateActive(v);
+      });
+    });
+    // default to P9 (Cyberpunk)
+    updateActive(document.documentElement.getAttribute('data-theme'));
+  </script>
+</body>
+</html>
