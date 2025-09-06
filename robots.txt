@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://chagantitrayi-sketch.github.io/portoflio/sitemap.xml
